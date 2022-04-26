@@ -10,6 +10,7 @@ var p2Wins = document.querySelector('.p2-wins');
 var main = document.querySelector('.main-content');
 //event listeners
 board.addEventListener('click', selectCell);
+window.addEventListener('load', setWins);
 
 //actual functions
 function selectCell(event) {
@@ -94,3 +95,13 @@ function resetBoardInDOM() {
     main.classList.remove('winner-color');
   }
 }
+
+function setWins() {
+if (localStorage.player1) {
+thisGame.player1.wins += parseInt(localStorage.player1);
+};
+if (localStorage.player2) {
+thisGame.player2.wins += parseInt(localStorage.player2);
+};
+displayWins();
+};
