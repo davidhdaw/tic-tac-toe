@@ -57,3 +57,17 @@ body {
 #cell7 {
   border-right: 7px solid black;
 }
+
+.display-winner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 60%;
+  border-radius: 10px;
+  border: 0px solid black;
+  height: 150px;
+  background: #3167b1;
+  position: absolute;
+  bottom: -10px; left: 20%;
+}
