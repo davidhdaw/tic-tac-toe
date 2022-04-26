@@ -5,6 +5,7 @@ var thisGame = new Game(player1, player2);
 //selectors
 var board = document.querySelector('.game-board');
 var cell0 = document.querySelector('#cell0');
+var displayWinner = document.querySelector('.display-winner');
 //event listeners
 board.addEventListener('click', selectCell);
 
