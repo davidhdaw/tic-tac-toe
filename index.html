@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
   </head>
   <body>
+    <header class="display-winner hidden">
+      <h2>It's ⭕'s turn</h2>
+    </header>
     <article class="left-sidebar">
-      <form class="player1-form" action="index.html" method="post">
-        <input type="text" name="player1-name" value="">
-        <button type="button" name="Confirm">Submit</button>
-      </form>
+      <h2>⭕</h2>
+      <h2 class="p1-wins">0 Wins</h2>
     </article>
     <article class="main-content">
       <section class ="game-board">
@@ -33,14 +34,9 @@
       </section>
     </article>
     <article class="right-sidebar">
-      <form class="player2-form" action="index.html" method="post">
-        <input type="text" name="player2-name" value="">
-        <button type="button" name="Confirm">Submit</button>
-      </form>
+      <h2>❌</h2>
+      <h2 class="p2-wins">0 Wins</h2>
     </article>
-    <footer class="display-winner hidden">
-      <h1>The winner is Jimothy!</h1>
-    </footer>
   </body>
   <script type="text/javascript" src="js/player.js"></script>
   <script type="text/javascript" src="js/game.js"></script>

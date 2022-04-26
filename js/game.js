@@ -18,10 +18,12 @@ class Game {
     for (var i = 0; i < winsArray.length; i++) {
       if (winsArray[i].every(value => value === this.player1.token)) {
         this.player1Turn = false;
+        this.player1.increaseWins();
         this.resetGameBoard();
         return `player1`;
       } else if (winsArray[i].every(value => value === this.player2.token)) {
         this.player1Turn = true;
+        this.player1.increaseWins();
         this.resetGameBoard();
         return `player2`;
       };

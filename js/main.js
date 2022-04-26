@@ -5,11 +5,13 @@ var thisGame = new Game(player1, player2);
 //selectors
 var board = document.querySelector('.game-board');
 var displayWinner = document.querySelector('.display-winner');
+var p1Wins = document.querySelector('.p1-wins');
+var p2Wins = document.querySelector('.p2-wins');
+var displayWinner = document.querySelector('.display-winner');
 //event listeners
 board.addEventListener('click', selectCell);
 
 //actual functions
-
 function selectCell(event) {
   var cellID = eval(event.target.id);
   var cellNum = parseInt(event.target.id.substring(4));

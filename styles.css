@@ -5,7 +5,11 @@ body {
   height: 100vh;
 }
 
-.left-sidebar {
+.left-sidebar,
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 17%
 }
 
@@ -15,10 +19,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.right-sidebar {
-  width: 17%
 }
 
 .cells {
@@ -69,5 +69,8 @@ body {
   height: 150px;
   background: #3167b1;
   position: absolute;
-  bottom: -10px; left: 20%;
+  top: -10px;
+  left: 20%;
+  padding: 0px;
+  margin: 0px;
 }
