@@ -5,6 +5,24 @@ body {
   height: 100vh;
 }
 
+.display-player {
+  background-color: #312F2F;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 60%;
+  border-radius: 10px;
+  border: 0px solid black;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  left: 20%;
+  padding: 0px;
+  margin: 0px;
+}
+
 .left-sidebar,
 .right-sidebar {
   display: flex;
@@ -13,12 +31,28 @@ body {
   width: 17%
 }
 
+.left-sidebar {
+  background-color: #F6E8EA;
+}
+
+.right-sidebar {
+  background-color: #84DCCF;
+}
 
 .main-content {
   width: 66%;
+  background-color: #F6E8EA;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.turnX {
+  background-color: #84DCCF;
+}
+
+.winner-color {
+  background-color: #312F2F;
 }
 
 .cells {
@@ -33,7 +67,6 @@ body {
 
 .game-board {
   display: grid;
-  background-color: #EAEAF4;
   grid-template-columns: repeat(3, 1fr);
   padding: 20px;
   overflow: auto;
@@ -56,23 +89,6 @@ body {
 #cell6,
 #cell7 {
   border-right: 7px solid black;
-}
-
-.display-player {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 60%;
-  border-radius: 10px;
-  border: 0px solid black;
-  height: 150px;
-  background: #3167b1;
-  position: absolute;
-  top: -10px;
-  left: 20%;
-  padding: 0px;
-  margin: 0px;
 }
 
 .hidden {

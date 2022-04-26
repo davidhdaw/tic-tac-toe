@@ -7,6 +7,7 @@ var board = document.querySelector('.game-board');
 var displayPlayer = document.querySelector('.display-player');
 var p1Wins = document.querySelector('.p1-wins');
 var p2Wins = document.querySelector('.p2-wins');
+var main = document.querySelector('.main-content');
 //event listeners
 board.addEventListener('click', selectCell);
 
@@ -18,7 +19,8 @@ function selectCell(event) {
     cellID.innerText = player1.token;
     thisGame.boardArray[cellNum] = player1.token;
     thisGame.player1Turn = false;
-    displayPlayer.innerHTML = `<h2>It's ❌'s turn</h2>`
+    displayPlayer.innerHTML = `<h2>It's ❌'s turn</h2>`;
+    main.classList.add('turnX');
     var gameStatus = thisGame.winCheck();
     endGame(gameStatus);
     return;
@@ -26,7 +28,8 @@ function selectCell(event) {
     cellID.innerText = player2.token;
     thisGame.boardArray[cellNum] = player2.token;
     thisGame.player1Turn = true;
-    displayPlayer.innerHTML = `<h2>It's ⭕'s turn</h2>`
+    displayPlayer.innerHTML = `<h2>It's ⭕'s turn</h2>`;
+    main.classList.remove('turnX');
     var gameStatus = thisGame.winCheck();
     endGame(gameStatus);
     return;
@@ -37,16 +40,19 @@ function endGame(gameStatus) {
   if (gameStatus === `player1`) {
     displayPlayer.innerHTML = `<h1>Player 1 wins! Dag!</h1>`;
     displayWins();
-    board.classList.add('hidden')
+    board.classList.add('hidden');
+    main.classList.add('winner-color');
     setTimeout(resetBoardInDOM, 2500);
   } else if (gameStatus === `player2`) {
     displayPlayer.innerHTML = `<h1>Player 2 wins! Frig!</h1>`;
     displayWins();
-    board.classList.add('hidden')
+    board.classList.add('hidden');
+    main.classList.add('winner-color');
     setTimeout(resetBoardInDOM, 2500);
   } else if (gameStatus === `tie`) {
-    displayPlayer.innerHTML = `<h1>heck dang it's a tie</h1>`;
-    board.classList.add('hidden')
+    displayPlayer.innerHTML = `<h1>Heck! Dang! It's a tie!</h1>`;
+    board.classList.add('hidden');
+    main.classList.add('winner-color');
     setTimeout(resetBoardInDOM, 2500);
   };
 };
@@ -80,7 +86,11 @@ function resetBoardInDOM() {
   board.classList.remove('hidden')
   if (thisGame.player1Turn) {
     displayPlayer.innerHTML = `<h2>It's ⭕'s turn</h2>`
+    main.classList.remove('turnX');
+    main.classList.remove('winner-color');
   } else {
     displayPlayer.innerHTML = `<h2>It's ❌'s turn</h2>`
+    main.classList.add('turnX');
+    main.classList.remove('winner-color');
   }
 }
