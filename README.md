@@ -29,9 +29,9 @@ Tic-Tac-Toe is a website that allows you and a friend (or enemy?) to take turns 
 ### Features
 - User can click a cell in the game to select their square.
 - Once selected the square fills with their symbol and it becomes the other player's turn.
-![Example of taking a square.](/assets/example1.gif)
+![Example of taking a square](/assets/example1.gif)
 - If a player selects a square that's already occupied nothing happens.
-![Example of trying to take an occupied square.](/assets/example2.gif)
+![Example of trying to take an occupied square](/assets/example2.gif)
 - If a player gets three in a row:
 1. A winner is declared.
 2. The winner count for that player increases by 1.
@@ -44,7 +44,7 @@ Tic-Tac-Toe is a website that allows you and a friend (or enemy?) to take turns 
 3. The player who did not choose the last square of the previous game gets the first choice in the new game.
 ![Example of a tied game.](/assets/example4.gif)
 - Webpage has local storage feature to keep track of wins even after reload.
-![Example of local storage.](/assets/example5.gif)
+![Example of local storage](/assets/example5.gif)
 
 ### Reflection
 - I added a few features like changing background colors that I had not experimented with before but this project was largely implementing concepts I had already learned in a new context.
