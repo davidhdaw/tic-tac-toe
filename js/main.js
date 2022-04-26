@@ -4,10 +4,9 @@ var player2 = new Player("player2", "❌");
 var thisGame = new Game(player1, player2);
 //selectors
 var board = document.querySelector('.game-board');
-var displayWinner = document.querySelector('.display-winner');
+var displayPlayer = document.querySelector('.display-player');
 var p1Wins = document.querySelector('.p1-wins');
 var p2Wins = document.querySelector('.p2-wins');
-var displayWinner = document.querySelector('.display-winner');
 //event listeners
 board.addEventListener('click', selectCell);
 
@@ -19,6 +18,7 @@ function selectCell(event) {
     cellID.innerText = player1.token;
     thisGame.boardArray[cellNum] = player1.token;
     thisGame.player1Turn = false;
+    displayPlayer.innerHTML = `<h2>It's ❌'s turn</h2>`
     var gameStatus = thisGame.winCheck();
     endGame(gameStatus);
     return;
@@ -26,6 +26,7 @@ function selectCell(event) {
     cellID.innerText = player2.token;
     thisGame.boardArray[cellNum] = player2.token;
     thisGame.player1Turn = true;
+    displayPlayer.innerHTML = `<h2>It's ⭕'s turn</h2>`
     var gameStatus = thisGame.winCheck();
     endGame(gameStatus);
     return;
@@ -34,19 +35,26 @@ function selectCell(event) {
 
 function endGame(gameStatus) {
   if (gameStatus === `player1`) {
-    console.log(`Player 1 wins! Dag!`);
-    displayWinner.innerHTML = `<h1>Player 1 wins! Dag!</h1>`;
+    displayPlayer.innerHTML = `<h1>Player 1 wins! Dag!</h1>`;
+    displayWins();
+    board.classList.add('hidden')
     setTimeout(resetBoardInDOM, 2500);
   } else if (gameStatus === `player2`) {
-    console.log(`Player 2 wins! Frig!`);
-    displayWinner.innerHTML = `<h1>Player 2 wins! Frig!</h1>`;
+    displayPlayer.innerHTML = `<h1>Player 2 wins! Frig!</h1>`;
+    displayWins();
+    board.classList.add('hidden')
     setTimeout(resetBoardInDOM, 2500);
   } else if (gameStatus === `tie`) {
-    console.log(`heck dang it's a tie`)
-    displayWinner.innerHTML = `<h1>heck dang it's a tie</h1>`;
+    displayPlayer.innerHTML = `<h1>heck dang it's a tie</h1>`;
+    board.classList.add('hidden')
     setTimeout(resetBoardInDOM, 2500);
-  }
-}
+  };
+};
+
+function displayWins() {
+  p1Wins.innerText = `${thisGame.player1.wins} Wins`;
+  p2Wins.innerText = `${thisGame.player2.wins} Wins`;
+};
 
 function resetBoardInDOM() {
   board.innerHTML = `
@@ -68,5 +76,11 @@ function resetBoardInDOM() {
   </div>
   <div class="cells" id="cell8">
   </div>
-  `
+  `;
+  board.classList.remove('hidden')
+  if (thisGame.player1Turn) {
+    displayPlayer.innerHTML = `<h2>It's ⭕'s turn</h2>`
+  } else {
+    displayPlayer.innerHTML = `<h2>It's ❌'s turn</h2>`
+  }
 }

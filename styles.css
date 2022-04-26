@@ -58,7 +58,7 @@ body {
   border-right: 7px solid black;
 }
 
-.display-winner {
+.display-player {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,4 +73,8 @@ body {
   left: 20%;
   padding: 0px;
   margin: 0px;
+}
+
+.hidden {
+  display: none!important;
 }

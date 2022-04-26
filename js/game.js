@@ -23,7 +23,7 @@ class Game {
         return `player1`;
       } else if (winsArray[i].every(value => value === this.player2.token)) {
         this.player1Turn = true;
-        this.player1.increaseWins();
+        this.player2.increaseWins();
         this.resetGameBoard();
         return `player2`;
       };
