@@ -17,18 +17,18 @@ class Game {
     winsArray.push([this.boardArray[2], this.boardArray[4], this.boardArray[6]]);
     for (var i = 0; i < winsArray.length; i++) {
       if (winsArray[i].every(value => value === this.player1.token)) {
-        console.log(`Player 1 wins! Dag!`)
-        displayWinner.innerHTML = `<h1>Player 1 wins! Dag!</h1>`
         this.player1Turn = false;
+        this.resetGameBoard();
+        return `player1`;
       } else if (winsArray[i].every(value => value === this.player2.token)) {
-        console.log(`Player 2 wins! Frig!`)
-        displayWinner.innerHTML = `<h1>Player 2 wins! Frig!</h1>`
         this.player1Turn = true;
+        this.resetGameBoard();
+        return `player2`;
       };
     };
     if (!this.boardArray.includes('-')) {
-      console.log(`heck dang it's a tie`)
-      displayWinner.innerHTML = `<h1>Heck dang! It's a tie!</h1>`
+      this.resetGameBoard();
+      return `tie`;
     }
   };
   resetGameBoard() {
