@@ -6,5 +6,6 @@ class Player {
     };
   increaseWins() {
     this.wins++;
+    localStorage.setItem(this.id, this.wins);
   };
 }
