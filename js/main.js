@@ -2,17 +2,19 @@
 var player1 = new Player("player1", "⭕");
 var player2 = new Player("player2", "❌");
 var thisGame = new Game(player1, player2);
+
 //selectors
 var board = document.querySelector('.game-board');
 var displayPlayer = document.querySelector('.display-player');
 var p1Wins = document.querySelector('.p1-wins');
 var p2Wins = document.querySelector('.p2-wins');
 var main = document.querySelector('.main-content');
+
 //event listeners
 board.addEventListener('click', selectCell);
 window.addEventListener('load', setWins);
 
-//actual functions
+//DOM functions
 function selectCell(event) {
   var cellID = eval(event.target.id);
   var cellNum = parseInt(event.target.id.substring(4));
@@ -34,7 +36,7 @@ function selectCell(event) {
     var gameStatus = thisGame.winCheck();
     endGame(gameStatus);
     return;
-  }
+  };
 };
 
 function endGame(gameStatus) {
@@ -65,24 +67,24 @@ function displayWins() {
 
 function resetBoardInDOM() {
   board.innerHTML = `
-  <div class="cells" id="cell0">
-  </div>
-  <div class="cells" id="cell1">
-  </div>
-  <div class="cells" id="cell2">
-  </div>
-  <div class="cells" id="cell3">
-  </div>
-  <div class="cells" id="cell4">
-  </div>
-  <div class="cells" id="cell5">
-  </div>
-  <div class="cells" id="cell6">
-  </div>
-  <div class="cells" id="cell7">
-  </div>
-  <div class="cells" id="cell8">
-  </div>
+    <div class="cells" id="cell0">
+    </div>
+    <div class="cells" id="cell1">
+    </div>
+    <div class="cells" id="cell2">
+    </div>
+    <div class="cells" id="cell3">
+    </div>
+    <div class="cells" id="cell4">
+    </div>
+    <div class="cells" id="cell5">
+    </div>
+    <div class="cells" id="cell6">
+    </div>
+    <div class="cells" id="cell7">
+    </div>
+    <div class="cells" id="cell8">
+    </div>
   `;
   board.classList.remove('hidden')
   if (thisGame.player1Turn) {
@@ -93,15 +95,15 @@ function resetBoardInDOM() {
     displayPlayer.innerHTML = `<h2>It's ❌'s turn</h2>`
     main.classList.add('turnX');
     main.classList.remove('winner-color');
-  }
-}
+  };
+};
 
 function setWins() {
-if (localStorage.player1) {
-thisGame.player1.wins += parseInt(localStorage.player1);
-};
-if (localStorage.player2) {
-thisGame.player2.wins += parseInt(localStorage.player2);
-};
-displayWins();
+  if (localStorage.player1) {
+    thisGame.player1.wins += parseInt(localStorage.player1);
+  };
+  if (localStorage.player2) {
+    thisGame.player2.wins += parseInt(localStorage.player2);
+  };
+  displayWins();
 };

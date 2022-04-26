@@ -1,6 +1,6 @@
 body {
   display: flex;
-  font-family: "Open Sans";
+  font-family: "Tahoma";
   margin: 0px;
   height: 100vh;
 }
@@ -23,12 +23,21 @@ body {
   margin: 0px;
 }
 
+h2 {
+  font-size: 2em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
 .left-sidebar,
 .right-sidebar {
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 17%
+  width: 17%;
 }
 
 .left-sidebar {
